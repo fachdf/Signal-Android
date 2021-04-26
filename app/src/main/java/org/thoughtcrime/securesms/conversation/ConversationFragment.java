@@ -17,6 +17,7 @@
 package org.thoughtcrime.securesms.conversation;
 
 import android.Manifest;
+import static org.webrtc.ContextUtils.getApplicationContext;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -1661,9 +1662,40 @@ public class ConversationFragment extends LoggingFragment {
         case R.id.action_multiselect: handleEnterMultiSelect(conversationMessage);                                          return true;
         case R.id.action_forward:     handleForwardMessage(conversationMessage);                                            return true;
         case R.id.action_download:    handleSaveAttachment((MediaMmsMessageRecord) conversationMessage.getMessageRecord()); return true;
+        /* Handle button notes-pari */
+        case R.id.action_notes_msg:     handleNotesMessages(SetUtil.newHashSet(conversationMessage));
         default:                                                                                                            return false;
       }
     }
+  }
+
+  // Handle Notes Messages - Bima Putra S edit by Fachri D.F.
+  private void handleNotesMessages(final Set<ConversationMessage> conversationMessages) {
+    Set<MessageRecord> messageRecordsNotes = Stream.of(conversationMessages).map(ConversationMessage::getMessageRecord).collect(Collectors.toSet());
+    buildRemoteNotesConfirmationDialog(messageRecordsNotes).show();
+  }
+
+  // Handle Pin Alert Dialog - Bima Putra S edited by Fachri D.F
+  private AlertDialog.Builder buildRemoteNotesConfirmationDialog(Set<MessageRecord> messageRecords) {
+    Context             context       = requireActivity();
+    int                 messagesCount = messageRecords.size();
+    AlertDialog.Builder builder       = new AlertDialog.Builder(getActivity());
+
+    builder.setTitle(getActivity().getResources().getQuantityString(R.plurals.ConversationFragment_notes_selected_messages, messagesCount, messagesCount));
+    builder.setCancelable(true);
+
+    builder.setPositiveButton(R.string.ConversationFragment_notes_for_me, (dialog, which) -> {
+      for (MessageRecord messageRecord : messageRecords) {
+        Context con = getApplicationContext();
+        int duration = 1000;
+
+        Toast toast = Toast.makeText(con, String.valueOf(messageRecord.getId()), duration);
+        toast.show();
+      }
+    });
+
+    builder.setNegativeButton(android.R.string.cancel, null);
+    return builder;
   }
 
   private class ActionModeCallback implements ActionMode.Callback {

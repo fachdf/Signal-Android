@@ -28,6 +28,7 @@ public class ManageGroupActivity extends PassphraseRequiredActivity {
     return intent;
   }
 
+
   public static @Nullable Bundle createTransitionBundle(@NonNull Context activityContext, @NonNull View from) {
     if (activityContext instanceof Activity) {
       return ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) activityContext, from, "avatar").toBundle();

@@ -289,6 +289,10 @@
         <item quantity="one">Delete selected message?</item>
         <item quantity="other">Delete selected messages?</item>
     </plurals>
+    <plurals name="ConversationFragment_notes_selected_messages">
+        <item quantity="one">Add selected messages to notes?</item>
+        <item quantity="other">Add selected messages to notes?</item>
+    </plurals>
     <string name="ConversationFragment_save_to_sd_card">Save to storage?</string>
     <plurals name="ConversationFragment_saving_n_media_to_storage_warning">
         <item quantity="one">Saving this media to storage will allow any other apps on your device to access it.\n\nContinue?</item>
@@ -314,6 +318,7 @@
     <string name="ConversationFragment_deleting">Deleting</string>
     <string name="ConversationFragment_deleting_messages">Deleting messages…</string>
     <string name="ConversationFragment_delete_for_me">Delete for me</string>
+    <string name="ConversationFragment_notes_for_me">Yes</string>
     <string name="ConversationFragment_delete_for_everyone">Delete for everyone</string>
     <string name="ConversationFragment_this_message_will_be_deleted_for_everyone_in_the_conversation">This message will be deleted for everyone in the conversation if they’re on a recent version of Signal. They will be able to see that you deleted a message.</string>
     <string name="ConversationFragment_quoted_message_not_found">Original message not found</string>
@@ -1095,20 +1100,20 @@
 
     <!-- GV2 invitation revokes -->
     <plurals name="MessageRecord_you_revoked_invites">
-      <item quantity="one">You revoked an invitation to the group.</item>
-      <item quantity="other">You revoked %1$d invitations to the group.</item>
+        <item quantity="one">You revoked an invitation to the group.</item>
+        <item quantity="other">You revoked %1$d invitations to the group.</item>
     </plurals>
     <plurals name="MessageRecord_s_revoked_invites">
-      <item quantity="one">%1$s revoked an invitation to the group.</item>
-      <item quantity="other">%1$s revoked %2$d invitations to the group.</item>
+        <item quantity="one">%1$s revoked an invitation to the group.</item>
+        <item quantity="other">%1$s revoked %2$d invitations to the group.</item>
     </plurals>
     <string name="MessageRecord_someone_declined_an_invitation_to_the_group">Someone declined an invitation to the group.</string>
     <string name="MessageRecord_you_declined_the_invitation_to_the_group">You declined the invitation to the group.</string>
     <string name="MessageRecord_s_revoked_your_invitation_to_the_group">%1$s revoked your invitation to the group.</string>
     <string name="MessageRecord_an_admin_revoked_your_invitation_to_the_group">An admin revoked your invitation to the group.</string>
     <plurals name="MessageRecord_d_invitations_were_revoked">
-      <item quantity="one">An invitation to the group was revoked.</item>
-      <item quantity="other">%1$d invitations to the group were revoked.</item>
+        <item quantity="one">An invitation to the group was revoked.</item>
+        <item quantity="other">%1$d invitations to the group were revoked.</item>
     </plurals>
 
     <!-- GV2 invitation acceptance -->
@@ -2429,6 +2434,7 @@
     <string name="conversation_context__menu_forward_message">Forward message</string>
     <string name="conversation_context__menu_resend_message">Resend message</string>
     <string name="conversation_context__menu_reply_to_message">Reply to message</string>
+    <string name="conversation_context__menu_add_to_group_notes">Add message to group notes</string>
 
     <!-- conversation_context_reacction -->
     <string name="conversation_context__reaction_multi_select">Select multiple</string>

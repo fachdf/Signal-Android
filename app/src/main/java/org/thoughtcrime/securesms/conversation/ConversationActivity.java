@@ -179,6 +179,9 @@ import org.thoughtcrime.securesms.groups.ui.invitesandrequests.ManagePendingAndR
 import org.thoughtcrime.securesms.groups.ui.managegroup.ManageGroupActivity;
 import org.thoughtcrime.securesms.groups.ui.migration.GroupsV1MigrationInitiationBottomSheetDialogFragment;
 import org.thoughtcrime.securesms.groups.ui.migration.GroupsV1MigrationSuggestionsDialog;
+/* Pari - Import Group Notes Activity */
+import org.thoughtcrime.securesms.groups.ui.notes.GroupNotesActivity;
+
 import org.thoughtcrime.securesms.insights.InsightsLauncher;
 import org.thoughtcrime.securesms.invites.InviteReminderModel;
 import org.thoughtcrime.securesms.invites.InviteReminderRepository;
@@ -1023,9 +1026,16 @@ public class ConversationActivity extends PassphraseRequiredActivity
     case R.id.menu_expiring_messages:         handleSelectMessageExpiration();                   return true;
     case R.id.menu_create_bubble:             handleCreateBubble();                              return true;
     case android.R.id.home:                   super.onBackPressed();                             return true;
+      /* Nambah Group Menu Button */
+    case R.id.menu_group_notes:               handleGroupNotes();                               return true;
     }
 
     return false;
+  }
+  /* Buat handler utk grupnotes button */
+  private void handleGroupNotes() {
+    Intent intent = new Intent(this, GroupNotesActivity.class);
+    startActivity(intent);
   }
 
   @Override

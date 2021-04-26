@@ -39,9 +39,16 @@
         app:iconTint="@color/signal_icon_tint_primary"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_notes_msg"
+        android:icon="@drawable/ic_group_notes"
+        android:title="@string/conversation_context__menu_add_to_group_notes"
+        app:iconTint="@color/signal_icon_tint_primary"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_forward"
         android:icon="@drawable/ic_forward_24"
         android:title="@string/conversation_context__menu_forward_message"
         app:iconTint="@color/signal_icon_tint_primary"
         app:showAsAction="ifRoom" />
+
 </menu>
