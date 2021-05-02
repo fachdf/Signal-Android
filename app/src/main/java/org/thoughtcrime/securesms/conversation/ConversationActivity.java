@@ -408,6 +408,8 @@ public class ConversationActivity extends PassphraseRequiredActivity
   private final DynamicTheme       dynamicTheme    = new DynamicNoActionBarTheme();
   private final DynamicLanguage    dynamicLanguage = new DynamicLanguage();
 
+  /* Arraylist utk notes list */
+  private ArrayList<String> notesList = new ArrayList<String>();
   @Override
   protected void onPreCreate() {
     dynamicTheme.onCreate(this);
@@ -594,6 +596,10 @@ public class ConversationActivity extends PassphraseRequiredActivity
     fragment.setLastSeen(System.currentTimeMillis());
     markLastSeen();
     EventBus.getDefault().unregister(this);
+  }
+
+  public void addNotesItem(String newitem){
+    notesList.add(newitem);
   }
 
   @Override
@@ -1035,6 +1041,7 @@ public class ConversationActivity extends PassphraseRequiredActivity
   /* Buat handler utk grupnotes button */
   private void handleGroupNotes() {
     Intent intent = new Intent(this, GroupNotesActivity.class);
+    intent.putStringArrayListExtra("NOTES_LIST", notesList);
     startActivity(intent);
   }
 

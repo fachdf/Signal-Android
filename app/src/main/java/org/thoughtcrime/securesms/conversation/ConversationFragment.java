@@ -1688,8 +1688,9 @@ public class ConversationFragment extends LoggingFragment {
       for (MessageRecord messageRecord : messageRecords) {
         Context con = getApplicationContext();
         int duration = 1000;
-
-        Toast toast = Toast.makeText(con, String.valueOf(messageRecord.getId()), duration);
+        StringBuffer c = new StringBuffer(messageRecord.getBody().toString());
+        Toast toast = Toast.makeText(con, String.valueOf(c), duration);
+        ((ConversationActivity) getActivity()).addNotesItem(String.valueOf(c));
         toast.show();
       }
     });
