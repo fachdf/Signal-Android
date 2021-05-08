@@ -160,6 +160,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import org.thoughtcrime.securesms.conversation.CountMessageWords;
 
 @SuppressLint("StaticFieldLeak")
 public class ConversationFragment extends LoggingFragment {
@@ -1680,16 +1681,15 @@ public class ConversationFragment extends LoggingFragment {
     Context             context       = requireActivity();
     int                 messagesCount = messageRecords.size();
     AlertDialog.Builder builder       = new AlertDialog.Builder(getActivity());
-
     builder.setTitle(getActivity().getResources().getQuantityString(R.plurals.ConversationFragment_notes_selected_messages, messagesCount, messagesCount));
     builder.setCancelable(true);
-
+    CountMessageWords countMessageWords = new CountMessageWords();
     builder.setPositiveButton(R.string.ConversationFragment_notes_for_me, (dialog, which) -> {
       for (MessageRecord messageRecord : messageRecords) {
         Context con = getApplicationContext();
         int duration = 1000;
         StringBuffer c = new StringBuffer(messageRecord.getBody().toString());
-        Toast toast = Toast.makeText(con, String.valueOf(c), duration);
+        Toast toast = Toast.makeText(con, countMessageWords.Counter(String.valueOf(c)), duration);
         ((ConversationActivity) getActivity()).addNotesItem(String.valueOf(c));
         toast.show();
       }
